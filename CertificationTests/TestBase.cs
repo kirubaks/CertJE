@@ -25,7 +25,7 @@ namespace CertificationTests
         [SetUp]
         public void BeforeTestSetup()
         {
-            Driver.Initialize("IE");
+            Driver.Initialize(ConfigurationManager.AppSettings["Browser"]);
             Driver.navigateTo(ConfigurationManager.AppSettings["URL"]); 
         }
 
