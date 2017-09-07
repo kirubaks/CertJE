@@ -6,6 +6,7 @@ using CertificationAutomation;
 using CertificationAutomation.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
+using log4net;
 
 namespace CertificationTests
 {
@@ -15,18 +16,24 @@ namespace CertificationTests
         public ExtentTest parent;
         public ExtentTest node;
         public string ReportLocation = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName).FullName, @"Reports\");
+        //log4net.Config.BasicConfigurator
 
         [OneTimeSetUp]
         public void BeforeSuiteSetup()
         {
+            Console.WriteLine(this.GetType().Name);
             report = Reporter.GetExtent(ReportLocation + "RegressionResults.html", "Regression Test Results", "Regression Test Suite");
             parent = report.CreateTest("Regression Test Suite_");
+            log4net.Config.BasicConfigurator.Configure();
         }
+
         [SetUp]
         public void BeforeTestSetup()
         {
+            Console.WriteLine(this.GetType().Name);
+            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString());
             Driver.Initialize(ConfigurationManager.AppSettings["Browser"]);
-            Driver.navigateTo(ConfigurationManager.AppSettings["URL"]); 
+            Driver.NavigateTo(ConfigurationManager.AppSettings["URL"]); 
         }
 
         [TearDown]
@@ -42,19 +49,24 @@ namespace CertificationTests
             {
                 case TestStatus.Failed:
                     logstatus = Status.Fail;
+                    string path = CommonFunctions.CaptureScreenshot(Driver.Instance, "C:\\Test\\", "test_failed");
+                    node.Fail("Test Failed").AddScreenCaptureFromPath(path);
+                    node.Log(logstatus, "Test ended with " + logstatus + stacktrace);
                     break;
                 case TestStatus.Inconclusive:
                     logstatus = Status.Warning;
+                    node.Log(logstatus, "Test ended with " + logstatus + stacktrace);
                     break;
                 case TestStatus.Skipped:
                     logstatus = Status.Skip;
+                    node.Log(logstatus, "Test skipped " + logstatus + stacktrace);
                     break;
                 default:
                     logstatus = Status.Pass;
                     break;
             }
 
-            node.Log(logstatus, "Test ended with " + logstatus + stacktrace);
+            //node.Log(logstatus, "Test ended with " + logstatus + stacktrace);
             Driver.Dispose();
         }
 

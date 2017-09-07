@@ -59,3 +59,6 @@ C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\Certif
 C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\obj\Debug\CertificationTests.csprojResolveAssemblyReference.cache
 C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\obj\Debug\CertificationTests.dll
 C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\obj\Debug\CertificationTests.pdb
+C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\Configuration\Environment.Config
+C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\Resources\ObjectMap.resx
+C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\Resources\ObjectMap.Designer.cs

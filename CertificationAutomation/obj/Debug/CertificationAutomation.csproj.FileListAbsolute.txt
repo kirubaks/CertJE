@@ -18,3 +18,9 @@ C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\Certif
 C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationAutomation\obj\Debug\CertificationAutomation.csprojResolveAssemblyReference.cache
 C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationAutomation\obj\Debug\CertificationAutomation.dll
 C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationAutomation\obj\Debug\CertificationAutomation.pdb
+C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationAutomation\obj\Debug\CertificationAutomation.csproj.GenerateResource.Cache
+C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationAutomation\obj\Debug\CertificationAutomation.Resources.ObjectMap.resources
+C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationAutomation\bin\Debug\log4net.dll
+C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationAutomation\bin\Debug\log4net.xml
+C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationAutomation\bin\Debug\Resources\ObjectMap.resx
+C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationAutomation\bin\Debug\Resources\ObjectMap.Designer.cs

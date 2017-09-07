@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 
@@ -12,10 +14,8 @@ namespace CertificationAutomation
 {
     public class Driver
     {
-        private static IWebDriver driver;
-       // private static string browser;
-
-        //public static IWebDriver Instance { get; set; }
+       
+        public static IWebDriver Instance { get; set; }
 
         public static void Initialize(string browser)
         {
@@ -28,42 +28,56 @@ namespace CertificationAutomation
                     options.AddUserProfilePreference("credentials_enable_service", false);
                     options.AddUserProfilePreference("profile.password_manager_enabled", false);
                    
-                    driver = new ChromeDriver(options);
-                    driver.Manage().Window.Maximize();
-                    driver.Manage().Cookies.DeleteAllCookies();
-                    driver.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(10));
+                    Instance = new ChromeDriver(options);
+                    Instance.Manage().Window.Maximize();
+                    Instance.Manage().Cookies.DeleteAllCookies();
+                    Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(10));
                    
                     break;
 
                 case "Firefox":
-                    driver = new FirefoxDriver();
-                    driver.Manage().Window.Maximize();
-                    driver.Manage().Cookies.DeleteAllCookies();
-                    driver.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(10));
+                    Instance = new FirefoxDriver();
+                    Instance.Manage().Window.Maximize();
+                    Instance.Manage().Cookies.DeleteAllCookies();
+                    Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(10));
                     break;
 
                 case "IE":
-                    driver = new InternetExplorerDriver();
-                    driver.Manage().Window.Maximize();
-                    driver.Manage().Cookies.DeleteAllCookies();
-                    driver.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(10));
+                    Instance = new InternetExplorerDriver();
+                    Instance.Manage().Window.Maximize();
+                    Instance.Manage().Cookies.DeleteAllCookies();
+                    Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(10));
+                    break;
+
+                case "Edge":
+                    string serverPath = "Microsoft Web Driver";
+                    if (System.Environment.Is64BitOperatingSystem)
+                    {
+                        serverPath = Path.Combine(System.Environment.ExpandEnvironmentVariables("%ProgramFiles(x86)%"), serverPath);
+                    }
+                    else
+                    {
+                        serverPath = Path.Combine(System.Environment.ExpandEnvironmentVariables("%ProgramFiles%"), serverPath);
+                    }
+                    EdgeOptions option = new EdgeOptions();
+                    option.PageLoadStrategy = EdgePageLoadStrategy.Eager;
+                    Instance = new EdgeDriver(serverPath, option);
+
+                    //Set page load timeout to 5 seconds
+                    Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(10));
                     break;
             }
         }
-
-        internal static IWebElement FindElement(By by)
-        {
-            return driver.FindElement(by);
-        }
-
+        
         public static void Dispose()
         {
-            driver.Quit();
+            Instance.Close();
+            Instance.Quit();
         }
 
-        public static void navigateTo(string url)
+        public static void NavigateTo(string url)
         {
-            driver.Navigate().GoToUrl(url);
+            Instance.Url = url ?? throw new ArgumentNullException("url", "Url is not defined");
         }
     }
 }
