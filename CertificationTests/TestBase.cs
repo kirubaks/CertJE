@@ -16,15 +16,16 @@ namespace CertificationTests
         public ExtentTest parent;
         public ExtentTest node;
         public string ReportLocation = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName).FullName, @"Reports\");
-        //log4net.Config.BasicConfigurator
+        public log4net.ILog logger;
+        public string TestSuiteFile = "C:\\Test\\Test1.xlsx";
 
         [OneTimeSetUp]
         public void BeforeSuiteSetup()
         {
             Console.WriteLine(this.GetType().Name);
-            report = Reporter.GetExtent(ReportLocation + "RegressionResults.html", "Regression Test Results", "Regression Test Suite");
-            parent = report.CreateTest("Regression Test Suite_");
-            log4net.Config.BasicConfigurator.Configure();
+            logger = log4net.LogManager.GetLogger(this.GetType().Name);
+            report = Reporter.GetExtent(ReportLocation + this.GetType().Name + ".html", this.GetType().Name+ " Results", this.GetType().Name+ " Suite");
+            parent = report.CreateTest(this.GetType().Name+ " Suite");
         }
 
         [SetUp]
@@ -34,6 +35,7 @@ namespace CertificationTests
             Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString());
             Driver.Initialize(ConfigurationManager.AppSettings["Browser"]);
             Driver.NavigateTo(ConfigurationManager.AppSettings["URL"]); 
+            
         }
 
         [TearDown]

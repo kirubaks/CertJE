@@ -13,7 +13,7 @@ namespace CertificationAutomation.Utilities
 {
     public static class CommonFunctions
     {
-        public static IWebElement FindElement(string locators)
+        public static By GetElement(string locators)
         {
 
             //string locators = ObjectMap.ResourceManager.GetString("Test");
@@ -26,24 +26,29 @@ namespace CertificationAutomation.Utilities
 
             //Return the element based on type of locator
             if (locatorType.ToLower().Equals("id"))
-                return Driver.Instance.FindElement(By.Id(locatorValue));
+                return By.Id(locatorValue);
             else if (locatorType.ToLower().Equals("name"))
-                return Driver.Instance.FindElement(By.Name(locatorValue));
+                return By.Name(locatorValue);
             else if ((locatorType.ToLower().Equals("classname")) || (locatorType.ToLower().Equals("class")))
-                return Driver.Instance.FindElement(By.TagName(locatorValue));
+                return By.TagName(locatorValue);
             else if ((locatorType.ToLower().Equals("tagname")) || (locatorType.ToLower().Equals("tag")))
-                return Driver.Instance.FindElement(By.ClassName(locatorValue));
+                return By.ClassName(locatorValue);
             else if ((locatorType.ToLower().Equals("linktext")) || (locatorType.ToLower().Equals("link")))
-                return Driver.Instance.FindElement(By.LinkText(locatorValue));
+                return By.LinkText(locatorValue);
             else if (locatorType.ToLower().Equals("partiallinktext"))
-                return Driver.Instance.FindElement(By.PartialLinkText(locatorValue));
+                return By.PartialLinkText(locatorValue);
             else if ((locatorType.ToLower().Equals("cssselector")) || locatorType.ToLower().Equals("css"))
-                return Driver.Instance.FindElement(By.CssSelector(locatorValue));
+                return By.CssSelector(locatorValue);
             else if (locatorType.ToLower().Equals("xpath"))
-                return Driver.Instance.FindElement(By.XPath(locatorValue));
+                return By.XPath(locatorValue);
             else
                 throw new Exception("Invalid LocatorType - Element not found");
             
+        }
+
+        public static IWebElement FindElement(string locators)
+        {
+            return Driver.Instance.FindElement(GetElement(locators));
         }
         public static void EnterText(string locator, string text)
         {
@@ -66,6 +71,8 @@ namespace CertificationAutomation.Utilities
             try
             {
                 FindElement(ObjectMap.ResourceManager.GetString(locator)).Click();
+                WebDriverWait wait = new WebDriverWait(Driver.Instance, new TimeSpan(0, 0, 5));
+                wait.Until(ExpectedConditions.ElementIsVisible(GetElement(locator)));
             }
             catch (StaleElementReferenceException e)
             {

@@ -1619,6 +1619,15 @@
             <list type="table"><listheader><term>Attribute name</term><term>Value returned if not explicitly specified</term><term>Valid element types</term></listheader><item><description>checked</description><description>checked</description><description>Check Box</description></item><item><description>selected</description><description>selected</description><description>Options in Select elements</description></item><item><description>disabled</description><description>disabled</description><description>Input and other UI elements</description></item></list></remarks>
       <exception cref="T:OpenQA.Selenium.StaleElementReferenceException">Thrown when the target element is no longer valid in the document DOM.</exception>
     </member>
+    <member name="M:OpenQA.Selenium.IWebElement.GetProperty(System.String)">
+      <summary>
+            Gets the value of a JavaScript property of this element.
+            </summary>
+      <param name="propertyName">The name JavaScript the JavaScript property to get the value of.</param>
+      <returns>The JavaScript property's current value. Returns a <see langword="null" /> if the
+            value is not set or the property does not exist.</returns>
+      <exception cref="T:OpenQA.Selenium.StaleElementReferenceException">Thrown when the target element is no longer valid in the document DOM.</exception>
+    </member>
     <member name="M:OpenQA.Selenium.IWebElement.GetCssValue(System.String)">
       <summary>
             Gets the value of a CSS property of this element.
@@ -1696,6 +1705,16 @@
     <member name="M:OpenQA.Selenium.IWindow.Maximize">
       <summary>
             Maximizes the current window if it is not already maximized.
+            </summary>
+    </member>
+    <member name="M:OpenQA.Selenium.IWindow.Minimize">
+      <summary>
+            Minimizes the current window if it is not already maximized.
+            </summary>
+    </member>
+    <member name="M:OpenQA.Selenium.IWindow.FullScreen">
+      <summary>
+            Sets the current window to full screen if it is not already in that state.
             </summary>
     </member>
     <member name="P:OpenQA.Selenium.IWindow.Position">
@@ -2418,6 +2437,32 @@
             </summary>
       <param name="settings">A dictionary of settings to use with the proxy.</param>
     </member>
+    <member name="M:OpenQA.Selenium.Proxy.AddBypassAddress(System.String)">
+      <summary>
+            Adds a single address to the list of addresses against which the proxy will not be used.
+            </summary>
+      <param name="address">The address to add.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Proxy.AddBypassAddresses(System.String[])">
+      <summary>
+            Adds addresses to the list of addresses against which the proxy will not be used.
+            </summary>
+      <param name="addressesToAdd">An array of addresses to add.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Proxy.AddBypassAddresses(System.Collections.Generic.IEnumerable{System.String})">
+      <summary>
+            Adds addresses to the list of addresses against which the proxy will not be used.
+            </summary>
+      <param name="addressesToAdd">An <see cref="T:System.Collections.Generic.IEnumerable`1" /> object of arguments to add.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Proxy.ToCapability">
+      <summary>
+            Returns a dictionary suitable for serializing to the W3C Specification
+            dialect of the wire protocol.
+            </summary>
+      <returns>A dictionary suitable for serializing to the W3C Specification
+            dialect of the wire protocol.</returns>
+    </member>
     <member name="P:OpenQA.Selenium.Proxy.Kind">
       <summary>
             Gets or sets the type of proxy.
@@ -2446,6 +2491,11 @@
     <member name="P:OpenQA.Selenium.Proxy.NoProxy">
       <summary>
             Gets or sets the value for bypass proxy addresses.
+            </summary>
+    </member>
+    <member name="P:OpenQA.Selenium.Proxy.BypassProxyAddresses">
+      <summary>
+            Gets the semicolon delimited list of address for which to bypass the proxy.
             </summary>
     </member>
     <member name="P:OpenQA.Selenium.Proxy.ProxyAutoConfigUrl">
@@ -2856,6 +2906,11 @@
     <member name="F:OpenQA.Selenium.WebDriverResult.NoSuchCookie">
       <summary>
             No cookie was found matching the name requested.
+            </summary>
+    </member>
+    <member name="F:OpenQA.Selenium.WebDriverResult.InvalidArgument">
+      <summary>
+            An invalid argument was passed to the command.
             </summary>
     </member>
     <member name="T:OpenQA.Selenium.WebDriverTimeoutException">
@@ -4424,6 +4479,15 @@
             <list type="table"><listheader><term>Attribute name</term><term>Value returned if not explicitly specified</term><term>Valid element types</term></listheader><item><description>checked</description><description>checked</description><description>Check Box</description></item><item><description>selected</description><description>selected</description><description>Options in Select elements</description></item><item><description>disabled</description><description>disabled</description><description>Input and other UI elements</description></item></list></remarks>
       <exception cref="T:OpenQA.Selenium.StaleElementReferenceException">Thrown when the target element is no longer valid in the document DOM.</exception>
     </member>
+    <member name="M:OpenQA.Selenium.Remote.RemoteWebElement.GetProperty(System.String)">
+      <summary>
+            Gets the value of a JavaScript property of this element.
+            </summary>
+      <param name="propertyName">The name JavaScript the JavaScript property to get the value of.</param>
+      <returns>The JavaScript property's current value. Returns a <see langword="null" /> if the
+            value is not set or the property does not exist.</returns>
+      <exception cref="T:OpenQA.Selenium.StaleElementReferenceException">Thrown when the target element is no longer valid in the document DOM.</exception>
+    </member>
     <member name="M:OpenQA.Selenium.Remote.RemoteWebElement.GetCssValue(System.String)">
       <summary>
             Gets the value of a CSS property of this element.
@@ -5667,6 +5731,11 @@
             Gets or sets the path and file name of the Firefox browser executable.
             </summary>
     </member>
+    <member name="P:OpenQA.Selenium.Firefox.FirefoxOptions.Proxy">
+      <summary>
+            Gets or sets the <see cref="P:OpenQA.Selenium.Firefox.FirefoxOptions.Proxy" /> to be used with Firefox.
+            </summary>
+    </member>
     <member name="P:OpenQA.Selenium.Firefox.FirefoxOptions.LogLevel">
       <summary>
             Gets or sets the logging level of the Firefox driver.
@@ -5762,6 +5831,13 @@
       <summary>
             Adds the WebDriver extension for Firefox to the profile.
             </summary>
+    </member>
+    <member name="M:OpenQA.Selenium.Firefox.FirefoxProfile.InternalSetProxyPreferences(OpenQA.Selenium.Proxy)">
+      <summary>
+            Internal implementation to set proxy preferences for this profile.
+            </summary>
+      <param name="proxy">The <see cref="T:OpenQA.Selenium.Proxy" /> object defining the proxy
+            preferences for the profile.</param>
     </member>
     <member name="M:OpenQA.Selenium.Firefox.FirefoxProfile.GenerateProfileDirectoryName">
       <summary>
@@ -10907,6 +10983,16 @@
             Maximizes the current window if it is not already maximized.
             </summary>
     </member>
+    <member name="M:OpenQA.Selenium.Remote.RemoteWindow.Minimize">
+      <summary>
+            Minimizes the current window if it is not already maximized.
+            </summary>
+    </member>
+    <member name="M:OpenQA.Selenium.Remote.RemoteWindow.FullScreen">
+      <summary>
+            Sets the current window to full screen if it is not already in that state.
+            </summary>
+    </member>
     <member name="P:OpenQA.Selenium.Remote.RemoteWindow.Position">
       <summary>
             Gets or sets the position of the browser window relative to the upper-left corner of the screen.
@@ -11527,6 +11613,181 @@
             reflected in the returned capabilities.
             </summary>
       <returns>The ICapabilities for Safari with these options.</returns>
+    </member>
+    <member name="T:OpenQA.Selenium.Support.UI.IWait`1">
+      <summary>
+            Interface describing a class designed to wait for a condition.
+            </summary>
+      <typeparam name="T">The type of object used to detect the condition.</typeparam>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.IWait`1.IgnoreExceptionTypes(System.Type[])">
+      <summary>
+            Configures this instance to ignore specific types of exceptions while waiting for a condition.
+            Any exceptions not whitelisted will be allowed to propagate, terminating the wait.
+            </summary>
+      <param name="exceptionTypes">The types of exceptions to ignore.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.IWait`1.Until``1(System.Func{`0,``0})">
+      <summary>
+            Waits until a condition is true or times out.
+            </summary>
+      <typeparam name="TResult">The type of result to expect from the condition.</typeparam>
+      <param name="condition">A delegate taking a TSource as its parameter, and returning a TResult.</param>
+      <returns>If TResult is a boolean, the method returns <see langword="true" /> when the condition is true, and <see langword="false" /> otherwise.
+            If TResult is an object, the method returns the object when the condition evaluates to a value other than <see langword="null" />.</returns>
+      <exception cref="T:System.ArgumentException">Thrown when TResult is not boolean or an object type.</exception>
+    </member>
+    <member name="P:OpenQA.Selenium.Support.UI.IWait`1.Timeout">
+      <summary>
+            Gets or sets how long to wait for the evaluated condition to be true.
+            </summary>
+    </member>
+    <member name="P:OpenQA.Selenium.Support.UI.IWait`1.PollingInterval">
+      <summary>
+            Gets or sets how often the condition should be evaluated.
+            </summary>
+    </member>
+    <member name="P:OpenQA.Selenium.Support.UI.IWait`1.Message">
+      <summary>
+            Gets or sets the message to be displayed when time expires.
+            </summary>
+    </member>
+    <member name="T:OpenQA.Selenium.Support.UI.DefaultWait`1">
+      <summary>
+            An implementation of the <see cref="T:OpenQA.Selenium.Support.UI.IWait`1" /> interface that may have its timeout and polling interval
+            configured on the fly.
+            </summary>
+      <typeparam name="T">The type of object on which the wait it to be applied.</typeparam>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.DefaultWait`1.#ctor(`0)">
+      <summary>
+            Initializes a new instance of the <see cref="T:OpenQA.Selenium.Support.UI.DefaultWait`1" /> class.
+            </summary>
+      <param name="input">The input value to pass to the evaluated conditions.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.DefaultWait`1.#ctor(`0,OpenQA.Selenium.Support.UI.IClock)">
+      <summary>
+            Initializes a new instance of the <see cref="T:OpenQA.Selenium.Support.UI.DefaultWait`1" /> class.
+            </summary>
+      <param name="input">The input value to pass to the evaluated conditions.</param>
+      <param name="clock">The clock to use when measuring the timeout.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.DefaultWait`1.IgnoreExceptionTypes(System.Type[])">
+      <summary>
+            Configures this instance to ignore specific types of exceptions while waiting for a condition.
+            Any exceptions not whitelisted will be allowed to propagate, terminating the wait.
+            </summary>
+      <param name="exceptionTypes">The types of exceptions to ignore.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.DefaultWait`1.Until``1(System.Func{`0,``0})">
+      <summary>
+            Repeatedly applies this instance's input value to the given function until one of the following
+            occurs:
+            <para><list type="bullet"><item>the function returns neither null nor false</item><item>the function throws an exception that is not in the list of ignored exception types</item><item>the timeout expires</item></list></para></summary>
+      <typeparam name="TResult">The delegate's expected return type.</typeparam>
+      <param name="condition">A delegate taking an object of type T as its parameter, and returning a TResult.</param>
+      <returns>The delegate's return value.</returns>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(System.String,System.Exception)">
+      <summary>
+            Throws a <see cref="T:OpenQA.Selenium.WebDriverTimeoutException" /> with the given message.
+            </summary>
+      <param name="exceptionMessage">The message of the exception.</param>
+      <param name="lastException">The last exception thrown by the condition.</param>
+      <remarks>This method may be overridden to throw an exception that is
+            idiomatic for a particular test infrastructure.</remarks>
+    </member>
+    <member name="P:OpenQA.Selenium.Support.UI.DefaultWait`1.Timeout">
+      <summary>
+            Gets or sets how long to wait for the evaluated condition to be true. The default timeout is 500 milliseconds.
+            </summary>
+    </member>
+    <member name="P:OpenQA.Selenium.Support.UI.DefaultWait`1.PollingInterval">
+      <summary>
+            Gets or sets how often the condition should be evaluated. The default timeout is 500 milliseconds.
+            </summary>
+    </member>
+    <member name="P:OpenQA.Selenium.Support.UI.DefaultWait`1.Message">
+      <summary>
+            Gets or sets the message to be displayed when time expires.
+            </summary>
+    </member>
+    <member name="T:OpenQA.Selenium.Support.UI.IClock">
+      <summary>
+            An interface describing time handling functions for timeouts.
+            </summary>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.IClock.LaterBy(System.TimeSpan)">
+      <summary>
+            Gets the <see cref="T:System.DateTime" /> at a specified offset in the future.
+            </summary>
+      <param name="delay">The offset to use.</param>
+      <returns>The <see cref="T:System.DateTime" /> at the specified offset in the future.</returns>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.IClock.IsNowBefore(System.DateTime)">
+      <summary>
+            Gets a value indicating whether the current date and time is before the specified date and time.
+            </summary>
+      <param name="otherDateTime">The date and time values to compare the current date and time values to.</param>
+      <returns>
+        <see langword="true" /> if the current date and time is before the specified date and time; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="P:OpenQA.Selenium.Support.UI.IClock.Now">
+      <summary>
+            Gets the current date and time values.
+            </summary>
+    </member>
+    <member name="T:OpenQA.Selenium.Support.UI.SystemClock">
+      <summary>
+            Uses the system clock to calculate time for timeouts.
+            </summary>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.SystemClock.LaterBy(System.TimeSpan)">
+      <summary>
+            Calculates the date and time values after a specific delay.
+            </summary>
+      <param name="delay">The delay after to calculate.</param>
+      <returns>The future date and time values.</returns>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.SystemClock.IsNowBefore(System.DateTime)">
+      <summary>
+            Gets a value indicating whether the current date and time is before the specified date and time.
+            </summary>
+      <param name="otherDateTime">The date and time values to compare the current date and time values to.</param>
+      <returns>
+        <see langword="true" /> if the current date and time is before the specified date and time; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="P:OpenQA.Selenium.Support.UI.SystemClock.Now">
+      <summary>
+            Gets the current date and time values.
+            </summary>
+    </member>
+    <member name="T:OpenQA.Selenium.Support.UI.WebDriverWait">
+      <summary>
+            Provides the ability to wait for an arbitrary condition during test execution.
+            </summary>
+      <example>
+        <code>
+            IWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3))
+            IWebElement element = wait.Until(driver =&gt; driver.FindElement(By.Name("q")));
+            </code>
+      </example>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.WebDriverWait.#ctor(OpenQA.Selenium.IWebDriver,System.TimeSpan)">
+      <summary>
+            Initializes a new instance of the <see cref="T:OpenQA.Selenium.Support.UI.WebDriverWait" /> class.
+            </summary>
+      <param name="driver">The WebDriver instance used to wait.</param>
+      <param name="timeout">The timeout value indicating how long to wait for the condition.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Support.UI.WebDriverWait.#ctor(OpenQA.Selenium.Support.UI.IClock,OpenQA.Selenium.IWebDriver,System.TimeSpan,System.TimeSpan)">
+      <summary>
+            Initializes a new instance of the <see cref="T:OpenQA.Selenium.Support.UI.WebDriverWait" /> class.
+            </summary>
+      <param name="clock">An object implementing the <see cref="T:OpenQA.Selenium.Support.UI.IClock" /> interface used to determine when time has passed.</param>
+      <param name="driver">The WebDriver instance used to wait.</param>
+      <param name="timeout">The timeout value indicating how long to wait for the condition.</param>
+      <param name="sleepInterval">A <see cref="T:System.TimeSpan" /> value indicating how often to check for the condition to be true.</param>
     </member>
     <member name="T:Newtonsoft.Json.ConstructorHandling">
       <summary>
