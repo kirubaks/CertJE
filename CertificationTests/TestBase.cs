@@ -7,6 +7,7 @@ using CertificationAutomation.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using log4net;
+using System.Collections;
 
 namespace CertificationTests
 {
@@ -18,6 +19,7 @@ namespace CertificationTests
         public string ReportLocation = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName).FullName, @"Reports\");
         public log4net.ILog logger;
         public string TestSuiteFile = "C:\\Test\\Test1.xlsx";
+        public Hashtable datatable;
 
         [OneTimeSetUp]
         public void BeforeSuiteSetup()
@@ -33,6 +35,7 @@ namespace CertificationTests
         {
             Console.WriteLine(this.GetType().Name);
             Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString());
+            datatable = DataProvider.getData();
             Driver.Initialize(ConfigurationManager.AppSettings["Browser"]);
             Driver.NavigateTo(ConfigurationManager.AppSettings["URL"]); 
             
