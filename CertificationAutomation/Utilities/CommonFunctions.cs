@@ -135,6 +135,20 @@ namespace CertificationAutomation.Utilities
             Driver.Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(number);
         }
 
+        public static void WaitUntilElementisVisible(double time, string locator)
+        {
+            try
+            {
+                WebDriverWait wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(time));
+                wait.Until(ExpectedConditions.ElementIsVisible(GetElement(locator)));
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element is not visible : " + e.Message);
+                throw e;
+            }
+        }
+
         public static void SelectDropDownbyValue(string locator, string value)
         {
             try
