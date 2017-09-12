@@ -117,12 +117,25 @@ namespace CertificationAutomation.Utilities
             }
         }
 
+        public static void SwitchtoiFrame(string locator)
+        {
+            try
+            {
+                Driver.Instance.SwitchTo().Frame(FindElement(ObjectMap.ResourceManager.GetString(locator)));
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+        }
+
         public static void Wait(double number)
         {
             Driver.Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(number);
         }
 
-        public static void selectDropDownbyValue(string locator, string value)
+        public static void SelectDropDownbyValue(string locator, string value)
         {
             try
             {
@@ -140,7 +153,7 @@ namespace CertificationAutomation.Utilities
             }
         }
 
-        public static void selectDropDownbyIndex(string locator, int index)
+        public static void SelectDropDownbyIndex(string locator, int index)
         {
             try
             {
@@ -158,7 +171,7 @@ namespace CertificationAutomation.Utilities
             }
         }
 
-        public static void selectDropDownbyText(string locator, string text)
+        public static void SelectDropDownbyText(string locator, string text)
         {
             try
             {
