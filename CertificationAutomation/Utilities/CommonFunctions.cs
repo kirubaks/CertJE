@@ -8,11 +8,15 @@ using System.Threading.Tasks;
 using CertificationAutomation.Resources;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
 
 namespace CertificationAutomation.Utilities
 {
     public static class CommonFunctions
     {
+        private static int WAIT_LONG = 20;
+        private static int WAIT_SHORT = 10;
+
         public static By GetElement(string locators)
         {
 
@@ -70,9 +74,24 @@ namespace CertificationAutomation.Utilities
         {
             try
             {
-                FindElement(ObjectMap.ResourceManager.GetString(locator)).Click();
-                WebDriverWait wait = new WebDriverWait(Driver.Instance, new TimeSpan(0, 0, 5));
+                WebDriverWait wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(10));
                 wait.Until(ExpectedConditions.ElementIsVisible(GetElement(locator)));
+                FindElement(ObjectMap.ResourceManager.GetString(locator)).Click();
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+        }
+
+        public static void Hover(string locator)
+        {
+            try
+            {
+                Actions builder = new Actions(Driver.Instance);
+                IWebElement element = FindElement(ObjectMap.ResourceManager.GetString(locator));
+                builder.MoveToElement(element).Build().Perform();
             }
             catch (StaleElementReferenceException e)
             {
