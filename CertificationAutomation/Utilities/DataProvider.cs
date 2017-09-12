@@ -16,44 +16,59 @@ namespace CertificationAutomation.Utilities
         {
         }
 
-      /*  public Object[][] ReadData(string path, string testName)
+        public static Hashtable getData()
         {
-            ExcelReaderUtility xlReader = new ExcelReaderUtility(path);
-            Hashtable rowdata = new Hashtable();
-            // Get test case row number and test data start row number
-            int testRowNumber = getRowNumber(sheetName, testNameColumn, testName);
-            //XSSFRow testRowNumberx = getRowNumber(sheetName, testNameColumn, testName);
-            int testDataStartRow = testRowNumber + 1;
+            int rows = 0;
+            ExcelReaderUtility xls = new ExcelReaderUtility("C:\\Test\\Temp.xlsx");
+            String sheetName = "Sheet1";
+            String testCaseName = "LoginTest";
 
-            // Calculate test data row count
-            int testDataRows = 0;
-            for (int i = testDataStartRow; GetCellData(sheetName, testNameColumn, i).equals(testName); i++)
+            int testStartRowNum = 1;
+
+            while (!xls.GetCellData(sheetName, 0, testStartRowNum).Equals(testCaseName))
             {
-                testDataRows++;
+                testStartRowNum++;
             }
 
-            // Calculate test data column count
-            int testDataCols = getCellCount(sheetName, testRowNumber) - testDataStartColumn + 1;
+            Console.WriteLine("Test Starts from row - " + testStartRowNum);
+            int colStartRowNum = testStartRowNum + 1;
+            int dataStartRowNum = testStartRowNum + 2;
 
-            // Define 2 dimensional object array to hold test data sets
-            Object[][] testCaseDataSets = new Object[testDataRows][testDataCols];
-            //Object[][] testCaseDataSets = new Object[testDataRows][2];
-
-            // Read test data cells from Excel file and assign into Object[][] testCaseDataSets
-            for (int i = 0; i < testDataRows; i++)
-
+            while (!xls.GetCellData(sheetName, 0, dataStartRowNum + rows).Equals(""))
             {
-                for (int j = 0; j < testDataCols; j++)
+                rows++;
+            }
+
+            //Calculate total number of cols
+            int cols = 0;
+            while (!xls.GetCellData(sheetName, cols, colStartRowNum).Equals(""))
+            {
+                cols++;
+            }
+            Console.WriteLine("Total cols are: " + cols);
+
+
+            Object[][] data = new Object[rows][1];
+
+            int datarow = 0;
+
+            Hashtable hashtable = null;
+
+            for (int rnum = dataStartRowNum; rnum < dataStartRowNum + rows; rnum++)
+            {
+                hashtable = new Hashtable();
+                for (int cnum = 0; cnum < cols; cnum++)
                 {
-                    rowdata.put(getCellData(sheetName, testRowNumber, testDataStartColumn + j), getCellData(sheetName, testDataStartColumn + j, testDataStartRow + i));
-
-                    testCaseDataSets[i][j] = getCellData(sheetName, testDataStartColumn + j, testDataStartRow + i);
+                    String key = xls.GetCellData(sheetName, cnum, colStartRowNum);
+                    String value = xls.GetCellData(sheetName, cnum, rnum);
+                    hashtable.Add(key, value);
+                    //data[datarow][cnum]=xls.getCellData(sheetName, cnum, rnum);
                 }
-
-                rowdata.clear();
+                data[datarow][0] = hashtable;
+                datarow++;
             }
 
-            return testCaseDataSets;
-        }*/
+            return hashtable;
+        }
     }
 }
