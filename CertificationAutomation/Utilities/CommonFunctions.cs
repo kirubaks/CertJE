@@ -158,6 +158,24 @@ namespace CertificationAutomation.Utilities
             }
         }
 
+        public static void selectDropDownbyText(string locator, string text)
+        {
+            try
+            {
+                // Create select element
+                var dropdown = FindElement(ObjectMap.ResourceManager.GetString(locator));
+                var selectElement = new SelectElement(dropdown);
+
+                // Select dropdown option by index
+                selectElement.SelectByText(text);
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+        }
+
         public static bool ValidateTitle(string locator)
         {
             return (Driver.Instance.Title.Equals(ObjectMap.ResourceManager.GetString(locator), StringComparison.InvariantCultureIgnoreCase));
