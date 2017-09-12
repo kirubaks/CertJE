@@ -97,6 +97,67 @@ namespace CertificationAutomation.Utilities
             }
         }
 
+        public static void SwitchtoPopup(string locator)
+        {
+            try
+            {
+                // Save main window handle
+                string mainWindow = Driver.Instance.CurrentWindowHandle;
+
+                // Initiate pop up and switch to it
+                IWebElement element = FindElement(ObjectMap.ResourceManager.GetString(locator));
+                PopupWindowFinder finder = new PopupWindowFinder(Driver.Instance);
+                string popupWindowHandle = finder.Click(element);
+                Driver.Instance.SwitchTo().Window(popupWindowHandle);
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+        }
+
+        public static void Wait(double number)
+        {
+            Driver.Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(number);
+        }
+
+        public static void selectDropDownbyValue(string locator, string value)
+        {
+            try
+            {
+                // Create select element
+                var dropdown = FindElement(ObjectMap.ResourceManager.GetString(locator));
+                var selectElement = new SelectElement(dropdown);
+
+                // Select dropdown option by value
+                selectElement.SelectByValue(value);
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+        }
+
+        public static void selectDropDownbyIndex(string locator, int index)
+        {
+            try
+            {
+                // Create select element
+                var dropdown = FindElement(ObjectMap.ResourceManager.GetString(locator));
+                var selectElement = new SelectElement(dropdown);
+
+                // Select dropdown option by index
+                selectElement.SelectByIndex(index);
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+        }
+
         public static bool ValidateTitle(string locator)
         {
             return (Driver.Instance.Title.Equals(ObjectMap.ResourceManager.GetString(locator), StringComparison.InvariantCultureIgnoreCase));
