@@ -10,6 +10,7 @@ using log4net;
 using System.Collections;
 using System.Diagnostics;
 
+
 namespace CertificationTests
 {
     public class TestBase
@@ -20,7 +21,9 @@ namespace CertificationTests
         public string ReportLocation = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName).FullName, @"Reports\");
         public ILog logger;
         public string TestSuiteFile = "C:\\Test\\Test1.xlsx";
+
         public Hashtable table;
+
 
         [OneTimeSetUp]
         public void BeforeSuiteSetup()
@@ -34,6 +37,7 @@ namespace CertificationTests
         public void BeforeTestSetup()
         {
             Console.WriteLine(this.GetType().Name);
+
             //Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod().ToString());
             // get call stack
             StackTrace stackTrace = new StackTrace();
