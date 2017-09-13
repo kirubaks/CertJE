@@ -16,12 +16,13 @@ namespace CertificationAutomation.Utilities
         {
         }
 
-        public static Hashtable getData()
+
+        public static Hashtable GetData()
         {
             int rows = 0;
             ExcelReaderUtility xls = new ExcelReaderUtility("C:\\Test\\Temp.xlsx");
-            String sheetName = "Sheet1";
-            String testCaseName = "LoginTest";
+            string sheetName = "Sheet1";
+            string testCaseName = "LoginTest";
 
             int testStartRowNum = 1;
 
@@ -30,7 +31,8 @@ namespace CertificationAutomation.Utilities
                 testStartRowNum++;
             }
 
-            Console.WriteLine("Test Starts from row - " + testStartRowNum);
+            //Console.WriteLine("Test Starts from row - " + testStartRowNum);
+
             int colStartRowNum = testStartRowNum + 1;
             int dataStartRowNum = testStartRowNum + 2;
 
@@ -45,10 +47,12 @@ namespace CertificationAutomation.Utilities
             {
                 cols++;
             }
-            Console.WriteLine("Total cols are: " + cols);
+
+            //Console.WriteLine("Total cols are: " + cols);
 
 
-            Object[][] data = new Object[rows][1];
+            Object[,] data = new Object[rows,1];
+
 
             int datarow = 0;
 
@@ -59,12 +63,13 @@ namespace CertificationAutomation.Utilities
                 hashtable = new Hashtable();
                 for (int cnum = 0; cnum < cols; cnum++)
                 {
-                    String key = xls.GetCellData(sheetName, cnum, colStartRowNum);
-                    String value = xls.GetCellData(sheetName, cnum, rnum);
+                    string key = xls.GetCellData(sheetName, cnum, colStartRowNum);
+                    string value = xls.GetCellData(sheetName, cnum, rnum);
                     hashtable.Add(key, value);
                     //data[datarow][cnum]=xls.getCellData(sheetName, cnum, rnum);
                 }
-                data[datarow][0] = hashtable;
+                data[datarow,0] = hashtable;
+
                 datarow++;
             }
 

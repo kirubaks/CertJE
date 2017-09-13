@@ -8,6 +8,8 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using log4net;
 using System.Collections;
+using System.Diagnostics;
+
 
 namespace CertificationTests
 {
@@ -19,12 +21,13 @@ namespace CertificationTests
         public string ReportLocation = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName).FullName, @"Reports\");
         public ILog logger;
         public string TestSuiteFile = "C:\\Test\\Test1.xlsx";
-        public Hashtable datatable;
+
+        public Hashtable table;
+
 
         [OneTimeSetUp]
         public void BeforeSuiteSetup()
         {
-            Console.WriteLine(this.GetType().Name);
             logger = LogManager.GetLogger(this.GetType().Name);
             report = Reporter.GetExtent(ReportLocation + this.GetType().Name + ".html", this.GetType().Name+ " Results", this.GetType().Name+ " Suite");
             parent = report.CreateTest(this.GetType().Name+ " Suite");
@@ -34,11 +37,17 @@ namespace CertificationTests
         public void BeforeTestSetup()
         {
             Console.WriteLine(this.GetType().Name);
-            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.ToString());
-            datatable = DataProvider.getData();
+
+            //Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod().ToString());
+            // get call stack
+            StackTrace stackTrace = new StackTrace();
+
+            // get calling method name
+            Console.WriteLine(stackTrace.GetFrame(0).GetMethod().Name);
+            table = DataProvider.GetData();
+           // Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod().Name);
             Driver.Initialize(ConfigurationManager.AppSettings["Browser"]);
             Driver.NavigateTo(ConfigurationManager.AppSettings["URL"]); 
-            
         }
 
         [TearDown]
