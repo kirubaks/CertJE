@@ -14,6 +14,9 @@ namespace CertificationAutomation.Utilities
 {
     public static class CommonFunctions
     {
+        private static int WAIT_LONG = 20;
+        private static int WAIT_SHORT = 10;
+
         public static By GetElement(string locators)
         {
 
