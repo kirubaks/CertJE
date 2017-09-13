@@ -7,6 +7,7 @@
 *.userosscache
 *.sln.docstates
 *.html
+*.ide
 
 # Build results
 [Dd]ebug/
