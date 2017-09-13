@@ -72,8 +72,8 @@ namespace CertificationAutomation.Utilities
             try
             {
                 FindElement(ObjectMap.ResourceManager.GetString(locator)).Click();
-                WebDriverWait wait = new WebDriverWait(Driver.Instance, new TimeSpan(0, 0, 5));
-                wait.Until(ExpectedConditions.ElementIsVisible(GetElement(locator)));
+                //WebDriverWait wait = new WebDriverWait(Driver.Instance, new TimeSpan(0, 0, 5));
+                //wait.Until(ExpectedConditions.ElementIsVisible(GetElement(locator)));
             }
             catch (StaleElementReferenceException e)
             {
