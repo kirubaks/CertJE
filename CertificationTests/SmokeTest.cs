@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using CertificationAutomation.Utilities;
+using System.Collections;
 
 namespace CertificationTests
 {
@@ -19,6 +20,8 @@ namespace CertificationTests
             string path = CommonFunctions.CaptureScreenshot(Driver.Instance, "C:\\Test\\", "test1");
             
             CommonFunctions.EnterText("Login_Username", "autouser");
+
+            Console.WriteLine(table["Username"].ToString());
             CommonFunctions.EnterText("Login_Password", "User123!@#");
             CommonFunctions.Click("Login_SignInButton");
 

@@ -23,7 +23,7 @@ namespace CertificationAutomation.Utilities
             //string locators = ObjectMap.ResourceManager.GetString("Test");
 
             //Split the value which contains locator type and locator value
-            Console.WriteLine(locators);
+            //Console.WriteLine(locators);
             string[] splitString = locators.Split(':');
             string locatorType = splitString[0];
             string locatorValue = splitString[1];
@@ -59,7 +59,7 @@ namespace CertificationAutomation.Utilities
             try
             {
                 //new WebDriverWait(Driver.Instance , TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(FindElement(ObjectMap.ResourceManager.GetString(locator))));
-                Console.WriteLine(locator);
+                //Console.WriteLine(locator);
                 FindElement(ObjectMap.ResourceManager.GetString(locator)).Clear();
                 FindElement(ObjectMap.ResourceManager.GetString(locator)).SendKeys(text);
             }
