@@ -100,6 +100,42 @@ namespace CertificationAutomation.Utilities
             }
         }
 
+        public static void ClickbyJSExecutor(string locator)
+        {
+            try
+            {
+                // Find element to be clicked
+                IWebElement element = FindElement(ObjectMap.ResourceManager.GetString(locator));
+
+                // Declare Java Script Executor and click element
+                IJavaScriptExecutor js = (IJavaScriptExecutor)Driver.Instance;
+                js.ExecuteScript("arguments[0].click()", element);
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+        }
+
+        public static void ClickbyAction(string locator)
+        {
+            try
+            {
+                // Find element to be clicked
+                IWebElement element = FindElement(ObjectMap.ResourceManager.GetString(locator));
+
+                // Declare Action and click element
+                Actions builder = new Actions(Driver.Instance);
+                builder.Click(element);
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+        }
+
         public static void SwitchtoPopup(string locator)
         {
             try
@@ -204,6 +240,62 @@ namespace CertificationAutomation.Utilities
                 Console.WriteLine("Element not found : " + e.Message);
                 throw e;
             }
+        }
+
+        public static string GetTextFromGraphBar(string locator, string barIdentifier)
+        {
+            string barText = "";
+            try
+            {
+                // Find root element of graph
+                IWebElement element = FindElement(ObjectMap.ResourceManager.GetString(locator));
+
+                // Make list of elements from main graph element
+                IList<IWebElement> bars = element.FindElements(By.TagName("area"));
+
+                // Iterate through list of elements for desired text
+                foreach (IWebElement bar in bars)
+                {
+                    if (bar.GetAttribute("href").Contains(barIdentifier))
+                    {
+                        barText = bar.GetAttribute("title").ToString();
+                    }
+                }
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+            return barText;
+        }
+
+        public static void ClickGraphBar(string locator, string barIdentifier)
+        {
+            
+            try
+            {
+                // Find root element of graph
+                IWebElement element = FindElement(ObjectMap.ResourceManager.GetString(locator));
+
+                // Make list of elements from main graph element
+                IList<IWebElement> bars = element.FindElements(By.TagName("area"));
+
+                // Iterate through list of elements for desired text
+                foreach (IWebElement bar in bars)
+                {
+                    if (bar.GetAttribute("href").Contains(barIdentifier))
+                    {
+                        bar.Click();
+                    }
+                }
+            }
+            catch (StaleElementReferenceException e)
+            {
+                Console.WriteLine("Element not found : " + e.Message);
+                throw e;
+            }
+            
         }
 
         public static bool ValidateTitle(string locator)
