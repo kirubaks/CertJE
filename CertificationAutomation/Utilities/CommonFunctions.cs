@@ -16,6 +16,7 @@ namespace CertificationAutomation.Utilities
     {
         private static int WAIT_LONG = 20;
         private static int WAIT_SHORT = 10;
+        private static Random random = new Random();
 
         public static By GetElement(string locators)
         {
@@ -296,6 +297,18 @@ namespace CertificationAutomation.Utilities
                 throw e;
             }
             
+        }
+
+        public static string RandomNumber(int length)
+        {
+            const string chars = "0123456789";
+            return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         public static bool ValidateTitle(string locator)

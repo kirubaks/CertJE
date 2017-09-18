@@ -19,7 +19,7 @@ namespace CertificationAutomation.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class ObjectMap {
@@ -61,6 +61,24 @@ namespace CertificationAutomation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to xpath://*[@id=&quot;menu_mega&quot;]/li[2]/div/ul[1]/li[3]/a.
+        /// </summary>
+        internal static string Add_New_Account {
+            get {
+                return ResourceManager.GetString("Add_New_Account", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xpath://*[@id=&quot;column1_cert&quot;]/div/div/div/div/div/div/h3/a.
+        /// </summary>
+        internal static string Certification_R2R_Header {
+            get {
+                return ResourceManager.GetString("Certification_R2R_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trintech.
         /// </summary>
         internal static string Dashboard_Title {
@@ -93,6 +111,15 @@ namespace CertificationAutomation.Resources {
         internal static string Login_Username {
             get {
                 return ResourceManager.GetString("Login_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xpath://*[@id=&quot;menu_mega&quot;]/li[2]/a[2].
+        /// </summary>
+        internal static string Maintenance_Tab {
+            get {
+                return ResourceManager.GetString("Maintenance_Tab", resourceCulture);
             }
         }
     }
