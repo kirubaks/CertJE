@@ -10,6 +10,8 @@ using System.Net;
 using System.Net.Cache;
 using RestSharp.Deserializers;
 using System.Collections.Generic;
+using RA;
+using Newtonsoft.Json.Linq;
 
 namespace CertificationTests
 {
@@ -96,7 +98,7 @@ namespace CertificationTests
             string entityId = JSONObj["id"];
             Console.WriteLine("Entity ID: " +entityId);
         }
-
+        [Test]
         public void AddAnAccountTest()
         {
             node = parent.CreateNode("Add an Account Test");
@@ -121,6 +123,51 @@ namespace CertificationTests
             CommonFunctions.EnterText("AccountName_Textbox", "AutomationAccount"+ CommonFunctions.RandomNumber(5));
         }
 
+        [Test]
+        public void TryingRestAssured()
+        {
+            CommonFunctions.EnterText("Login_Username", "autouser");
+            CommonFunctions.EnterText("Login_Password", "User123!@#");
+            CommonFunctions.Click("Login_SignInButton");
+
+            Driver.Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(40));
+
+            Driver.Instance.FindElement(By.CssSelector(".dashboard_close_container_content>h3>a")).Click();
+            Driver.Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(40));
+
+            Driver.Instance.FindElement(By.CssSelector("#menu_li_2>a")).Click();
+            Driver.Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(70));
+
+            string cookievalue = CommonFunctions.GetCookieValue();
+            string tokenvalue = CommonFunctions.GetTokenValue();
+            string token = CommonFunctions.setdoubleQuote(tokenvalue);
+
+          /*  JObject test = new JObject();
+            test.Add("parentId", null);
+            test.Add("number", "csharptest1");
+            test.Add("name", "csharptest1");
+            test.Add("description", "testdesc");*/
+
+            ServicePointManager.ServerCertificateValidationCallback +=
+            (sender, certificate, chain, sslPolicyErrors) => true;
+            // System.Net.ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+
+            new RestAssured()
+                               .Given()
+                                .Host("https://site4console.cadency.trintech.com")
+                                .Uri("/closeAPI/api/close/entity")
+                                .Header("ignore-ssl-errors", "true")
+                                .Header("Cookie", "OCSessionID=" + cookievalue + "\"")
+                                .Header("Cookie", "XSRF-TOKEN=" + token + "\"")
+                                .Header("X-XSRF-TOKEN", tokenvalue)
+                                .Header("Content-Type", "application/json")
+                                .Body("{ 'parentId' : null, 'number' : 'csharptest', 'name' : 'Brooklyn', 'description' : 'test123'}")
+                     .When()
+                        .Post()
+                        .Then()
+
+                    .Debug();
+        }
 
     }
 }
