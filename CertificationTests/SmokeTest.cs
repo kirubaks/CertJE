@@ -45,8 +45,16 @@ namespace CertificationTests
             CommonFunctions.EnterText("Login_Password", "User123!@#");
             CommonFunctions.Click("Login_SignInButton");
             CommonFunctions.Click("Certification_R2R_Header");
+
             CommonFunctions.Click("Maintenance_Tab");
             CommonFunctions.Click("Add_New_Account");
+
+            CommonFunctions.EnterText("CompanyCode_Textbox", CommonFunctions.RandomNumber(5));
+            CommonFunctions.EnterText("Account_Textbox", CommonFunctions.RandomNumber(5));
+            CommonFunctions.EnterText("Division_Textbox", CommonFunctions.RandomNumber(5));
+            CommonFunctions.EnterText("SetofBooks_Textbox", CommonFunctions.RandomNumber(5));
+            CommonFunctions.EnterText("Description_Textbox", "This is an automation test account.");
+            CommonFunctions.EnterText("AccountName_Textbox", "AutomationAccount"+ CommonFunctions.RandomNumber(5));
         }
 
 

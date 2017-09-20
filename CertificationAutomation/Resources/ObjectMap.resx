@@ -117,14 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountName_Textbox" xml:space="preserve">
+    <value>ctl00_MainContent_txtAccName</value>
+  </data>
+  <data name="Account_Textbox" xml:space="preserve">
+    <value>ctl00_MainContent_accountSegmentsDataList_ctl01_txtAccountSegment</value>
+  </data>
   <data name="Add_New_Account" xml:space="preserve">
     <value>xpath://*[@id="menu_mega"]/li[2]/div/ul[1]/li[3]/a</value>
   </data>
   <data name="Certification_R2R_Header" xml:space="preserve">
     <value>xpath://*[@id="column1_cert"]/div/div/div/div/div/div/h3/a</value>
   </data>
+  <data name="CompanyCode_Textbox" xml:space="preserve">
+    <value>ctl00_MainContent_accountSegmentsDataList_ctl00_txtAccountSegment</value>
+  </data>
   <data name="Dashboard_Title" xml:space="preserve">
     <value>Trintech</value>
+  </data>
+  <data name="Description_Textbox" xml:space="preserve">
+    <value>ctl00$MainContent$descriptionTextBox_Div</value>
+  </data>
+  <data name="Division_Textbox" xml:space="preserve">
+    <value>ctl00_MainContent_accountSegmentsDataList_ctl02_txtAccountSegment</value>
   </data>
   <data name="Login_Password" xml:space="preserve">
     <value>id:Password</value>
@@ -137,5 +152,8 @@
   </data>
   <data name="Maintenance_Tab" xml:space="preserve">
     <value>xpath://*[@id="menu_mega"]/li[2]/a[2]</value>
+  </data>
+  <data name="SetofBooks_Textbox" xml:space="preserve">
+    <value>ctl00_MainContent_accountSegmentsDataList_ctl03_txtAccountSegment</value>
   </data>
 </root>
