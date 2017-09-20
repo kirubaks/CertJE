@@ -91,6 +91,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\SpecFlowFeature1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
+    </Compile>
     <Compile Include="SmokeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
@@ -105,6 +110,10 @@
     </None>
     <None Include="Default.srprofile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Features\SpecFlowFeature1.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="runtests.cmd" />
@@ -123,7 +132,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\" />
     <Folder Include="Reports\" />
     <Folder Include="StepDefinitions\" />
     <Folder Include="TestRunners\" />
