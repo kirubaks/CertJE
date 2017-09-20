@@ -51,8 +51,7 @@ namespace CertificationAutomation.Utilities
             //Console.WriteLine("Total cols are: " + cols);
 
 
-            Object[,] data = new Object[rows,1];
-
+            Object[,] data = new Object[rows, 1];
 
             int datarow = 0;
 
@@ -69,7 +68,6 @@ namespace CertificationAutomation.Utilities
                     //data[datarow][cnum]=xls.getCellData(sheetName, cnum, rnum);
                 }
                 data[datarow,0] = hashtable;
-
                 datarow++;
             }
 

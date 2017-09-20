@@ -61,11 +61,74 @@ namespace CertificationAutomation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_accountSegmentsDataList_ctl01_txtAccountSegment.
+        /// </summary>
+        internal static string Account_Textbox {
+            get {
+                return ResourceManager.GetString("Account_Textbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_txtAccName.
+        /// </summary>
+        internal static string AccountName_Textbox {
+            get {
+                return ResourceManager.GetString("AccountName_Textbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xpath://*[@id=&quot;menu_mega&quot;]/li[2]/div/ul[1]/li[3]/a.
+        /// </summary>
+        internal static string Add_New_Account {
+            get {
+                return ResourceManager.GetString("Add_New_Account", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xpath://*[@id=&quot;column1_cert&quot;]/div/div/div/div/div/div/h3/a.
+        /// </summary>
+        internal static string Certification_R2R_Header {
+            get {
+                return ResourceManager.GetString("Certification_R2R_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_accountSegmentsDataList_ctl00_txtAccountSegment.
+        /// </summary>
+        internal static string CompanyCode_Textbox {
+            get {
+                return ResourceManager.GetString("CompanyCode_Textbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trintech.
         /// </summary>
         internal static string Dashboard_Title {
             get {
                 return ResourceManager.GetString("Dashboard_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00$MainContent$descriptionTextBox_Div.
+        /// </summary>
+        internal static string Description_Textbox {
+            get {
+                return ResourceManager.GetString("Description_Textbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_accountSegmentsDataList_ctl02_txtAccountSegment.
+        /// </summary>
+        internal static string Division_Textbox {
+            get {
+                return ResourceManager.GetString("Division_Textbox", resourceCulture);
             }
         }
         
@@ -93,6 +156,24 @@ namespace CertificationAutomation.Resources {
         internal static string Login_Username {
             get {
                 return ResourceManager.GetString("Login_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xpath://*[@id=&quot;menu_mega&quot;]/li[2]/a[2].
+        /// </summary>
+        internal static string Maintenance_Tab {
+            get {
+                return ResourceManager.GetString("Maintenance_Tab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_accountSegmentsDataList_ctl03_txtAccountSegment.
+        /// </summary>
+        internal static string SetofBooks_Textbox {
+            get {
+                return ResourceManager.GetString("SetofBooks_Textbox", resourceCulture);
             }
         }
     }
