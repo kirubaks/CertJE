@@ -50,6 +50,43 @@ namespace CertificationAutomation.Utilities
             
         }
 
+        public static string GetCookieValue()
+        {
+            string cookievalue;
+            Cookie session = Driver.Instance.Manage().Cookies.GetCookieNamed("OCSessionID");
+            string newStr = session.ToString();
+            Console.WriteLine(newStr);
+            cookievalue = newStr.Substring(0, newStr.IndexOf(" "));
+            cookievalue = cookievalue.Substring(cookievalue.IndexOf("=")).Replace("=", "").Replace(";", "");
+            Console.WriteLine(cookievalue);
+            cookievalue = setdoubleQuote(cookievalue);
+            return cookievalue;
+        }
+
+        public static string GetTokenValue()
+        {
+            string tokenvalue;
+            //int newStr1;
+            Cookie newcookie = Driver.Instance.Manage().Cookies.GetCookieNamed("XSRF-TOKEN");
+            
+            Console.WriteLine(newcookie);
+            string test = newcookie.ToString();
+            tokenvalue = test.Substring(0, test.IndexOf(";"));
+            string cookietemp = tokenvalue.Substring(11);
+            Console.WriteLine(cookietemp);
+            return cookietemp;
+        }
+
+        public static string setdoubleQuote(string cookievalue)
+        {
+            string quoteText = "";
+            if (!cookievalue.Equals(""))
+            {
+                quoteText = "\"" + cookievalue + "\"";
+            }
+            return quoteText;
+        }
+
         public static IWebElement FindElement(string locators)
         {
             return Driver.Instance.FindElement(GetElement(locators));

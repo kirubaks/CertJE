@@ -124,7 +124,7 @@
     <value>id:Password</value>
   </data>
   <data name="Login_SignInButton" xml:space="preserve">
-    <value>css:.loginButton</value>
+    <value>css:input[value='Sign In']</value>
   </data>
   <data name="Login_Username" xml:space="preserve">
     <value>id:UserName</value>

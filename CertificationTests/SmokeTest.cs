@@ -5,33 +5,96 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using CertificationAutomation.Utilities;
 using System.Collections;
+using RestSharp;
+using System.Net;
+using System.Net.Cache;
+using RestSharp.Deserializers;
+using System.Collections.Generic;
 
 namespace CertificationTests
 {
     [TestFixture]
     public class SmokeTest :TestBase
     {
+        private string cookieValue=null;
 
         [Test]
         public void LoginTest()
         {
             node = parent.CreateNode("Login Test");
             logger.Info("Login Test: Started");
-            string path = CommonFunctions.CaptureScreenshot(Driver.Instance, "C:\\Test\\", "test1");
-            
-            CommonFunctions.EnterText("Login_Username", "autouser");
 
-            Console.WriteLine(table["Username"].ToString());
-            CommonFunctions.EnterText("Login_Password", "User123!@#");
+            CommonFunctions.EnterText("Login_Username", table["Username"].ToString());
+            CommonFunctions.EnterText("Login_Password", table["Password"].ToString());
             CommonFunctions.Click("Login_SignInButton");
 
+            Driver.Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(40));
             Assert.IsTrue(CommonFunctions.ValidateTitle("Dashboard_Title"));
-
+            cookieValue = CommonFunctions.GetCookieValue();
+            Console.WriteLine(cookieValue);
+            string path = CommonFunctions.CaptureScreenshot(Driver.Instance, "C:\\Test\\", "test1");
             path = CommonFunctions.CaptureScreenshot(Driver.Instance, "C:\\Test\\", "LoginTest");
             node.Pass("Login Successful").AddScreenCaptureFromPath(path);
+
             logger.Info("Login Test: Ended");
         }
 
+        [Test]
+        public void APITest()
+        {
+            CommonFunctions.EnterText("Login_Username", "autouser");
+            CommonFunctions.EnterText("Login_Password", "User123!@#");
+            CommonFunctions.Click("Login_SignInButton");
+
+            Driver.Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(40));
+
+            Driver.Instance.FindElement(By.CssSelector(".dashboard_close_container_content>h3>a")).Click();
+            Driver.Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(40));
+
+            Driver.Instance.FindElement(By.CssSelector("#menu_li_2>a")).Click();
+            Driver.Instance.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(70));
+
+            string cookievalue = CommonFunctions.GetCookieValue();
+            string tokenvalue = CommonFunctions.GetTokenValue();
+            string token = CommonFunctions.setdoubleQuote(tokenvalue);
+
+            ServicePointManager.ServerCertificateValidationCallback +=
+                    (sender, certificate, chain, sslPolicyErrors) => true;
+
+            var client = new RestClient("https://site4console.cadency.trintech.com/closeAPI/api/close/entity");
+            client.FollowRedirects = false;
+            client.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.Revalidate);
+
+            var request = new RestRequest(Method.POST);
+
+            request.AddHeader("cache-control", "no-cache");
+
+            request.AddCookie("OCSessionID", cookievalue);
+            request.AddCookie("XSRF-TOKEN", tokenvalue);
+
+            request.AddHeader("X-XSRF-TOKEN", tokenvalue);
+            request.AddHeader("Content-Type", "application/json");
+
+            request.AddParameter("application/json", "{\"parentId\": null, \"number\": \"csharpTest3\", \"name\": \"csharpTest3\", \"description\": \"csharpTest3\"}", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            var content = response.Content;
+            
+            System.Net.HttpStatusCode statusCode = response.StatusCode;
+            int numericStatusCode = (int)statusCode;
+            Console.WriteLine(numericStatusCode);
+
+            var head = response.Headers;
+            string headers = head.ToString();
+            //Console.WriteLine(headers);
+
+            // Create a new Deserializer to be able to parse the JSON object
+            RestSharp.Deserializers.JsonDeserializer deserial = new JsonDeserializer();
+            
+            //To deserialize into a simple variable, use the <Dictionary<string, string>> type
+            var JSONObj = deserial.Deserialize<Dictionary<string, string>>(response);
+            string entityId = JSONObj["id"];
+            Console.WriteLine("Entity ID: " +entityId);
+        }
 
     }
 }
