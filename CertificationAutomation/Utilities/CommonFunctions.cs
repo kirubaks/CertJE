@@ -9,13 +9,14 @@ using CertificationAutomation.Resources;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System.Data.SqlClient;
 
 namespace CertificationAutomation.Utilities
 {
     public static class CommonFunctions
     {
-        private static int WAIT_LONG = 20;
-        private static int WAIT_SHORT = 10;
+        //private static int WAIT_LONG = 20;
+        //private static int WAIT_SHORT = 10;
         private static Random random = new Random();
 
         public static By GetElement(string locators)
@@ -49,6 +50,43 @@ namespace CertificationAutomation.Utilities
             else
                 throw new Exception("Invalid LocatorType - Element not found");
             
+        }
+
+        public static string GetCookieValue()
+        {
+            string cookievalue;
+            Cookie session = Driver.Instance.Manage().Cookies.GetCookieNamed("OCSessionID");
+            string newStr = session.ToString();
+            Console.WriteLine(newStr);
+            cookievalue = newStr.Substring(0, newStr.IndexOf(" "));
+            cookievalue = cookievalue.Substring(cookievalue.IndexOf("=")).Replace("=", "").Replace(";", "");
+            Console.WriteLine(cookievalue);
+            cookievalue = setdoubleQuote(cookievalue);
+            return cookievalue;
+        }
+
+        public static string GetTokenValue()
+        {
+            string tokenvalue;
+            //int newStr1;
+            Cookie newcookie = Driver.Instance.Manage().Cookies.GetCookieNamed("XSRF-TOKEN");
+            
+            Console.WriteLine(newcookie);
+            string test = newcookie.ToString();
+            tokenvalue = test.Substring(0, test.IndexOf(";"));
+            string cookietemp = tokenvalue.Substring(11);
+            Console.WriteLine(cookietemp);
+            return cookietemp;
+        }
+
+        public static string setdoubleQuote(string cookievalue)
+        {
+            string quoteText = "";
+            if (!cookievalue.Equals(""))
+            {
+                quoteText = "\"" + cookievalue + "\"";
+            }
+            return quoteText;
         }
 
         public static IWebElement FindElement(string locators)
@@ -314,6 +352,38 @@ namespace CertificationAutomation.Utilities
         public static bool ValidateTitle(string locator)
         {
             return (Driver.Instance.Title.Equals(ObjectMap.ResourceManager.GetString(locator), StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        public static string DBValidation(string getresult)
+        {
+            string result = null;
+            try
+            {
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString =
+                "Data Source=ServerName;" +
+                "Initial Catalog=DataBaseName;" +
+                "User id=UserName;" +
+                "Password=Secret;";
+                conn.Open();
+
+                SqlCommand runsqltest = new SqlCommand("Command String", conn);
+                SqlDataReader reader = runsqltest.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Console.WriteLine(reader["id"].ToString());
+                    Console.WriteLine(reader["name"].ToString());
+                    result = reader["id"].ToString();
+                }
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return result;
         }
 
         public static string CaptureScreenshot(IWebDriver BrowserInstance, string Path, string FileName)

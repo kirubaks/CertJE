@@ -187,7 +187,7 @@ namespace CertificationAutomation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to css:.loginButton.
+        ///   Looks up a localized string similar to css:input[value=&apos;Sign In&apos;].
         /// </summary>
         internal static string Login_SignInButton {
             get {
