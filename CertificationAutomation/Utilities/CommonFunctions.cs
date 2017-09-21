@@ -9,13 +9,14 @@ using CertificationAutomation.Resources;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System.Data.SqlClient;
 
 namespace CertificationAutomation.Utilities
 {
     public static class CommonFunctions
     {
-        private static int WAIT_LONG = 20;
-        private static int WAIT_SHORT = 10;
+        //private static int WAIT_LONG = 20;
+        //private static int WAIT_SHORT = 10;
         private static Random random = new Random();
 
         public static By GetElement(string locators)
@@ -351,6 +352,38 @@ namespace CertificationAutomation.Utilities
         public static bool ValidateTitle(string locator)
         {
             return (Driver.Instance.Title.Equals(ObjectMap.ResourceManager.GetString(locator), StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        public static string DBValidation(string getresult)
+        {
+            string result = null;
+            try
+            {
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString =
+                "Data Source=ServerName;" +
+                "Initial Catalog=DataBaseName;" +
+                "User id=UserName;" +
+                "Password=Secret;";
+                conn.Open();
+
+                SqlCommand runsqltest = new SqlCommand("Command String", conn);
+                SqlDataReader reader = runsqltest.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Console.WriteLine(reader["id"].ToString());
+                    Console.WriteLine(reader["name"].ToString());
+                    result = reader["id"].ToString();
+                }
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            return result;
         }
 
         public static string CaptureScreenshot(IWebDriver BrowserInstance, string Path, string FileName)
