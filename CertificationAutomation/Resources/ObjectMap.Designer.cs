@@ -79,11 +79,47 @@ namespace CertificationAutomation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcAccountAttributes1_accountTypeDropDownList_Arrow.
+        /// </summary>
+        internal static string AccountType_Dropdown {
+            get {
+                return ResourceManager.GetString("AccountType_Dropdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to xpath://*[@id=&quot;menu_mega&quot;]/li[2]/div/ul[1]/li[3]/a.
         /// </summary>
         internal static string Add_New_Account {
             get {
                 return ResourceManager.GetString("Add_New_Account", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcReconciliationCCYs1_currency1GenerateBalanceCheckBox.
+        /// </summary>
+        internal static string CCY1_Chkbox {
+            get {
+                return ResourceManager.GetString("CCY1_Chkbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcReconciliationCCYs1_currency2GenerateBalanceCheckBox.
+        /// </summary>
+        internal static string CCY2_Chkbox {
+            get {
+                return ResourceManager.GetString("CCY2_Chkbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcReconciliationCCYs1_currency3GenerateBalanceCheckBox.
+        /// </summary>
+        internal static string CCY3_Chkbox {
+            get {
+                return ResourceManager.GetString("CCY3_Chkbox", resourceCulture);
             }
         }
         
@@ -133,6 +169,15 @@ namespace CertificationAutomation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcAccountAttributes1_locationDropDownList_Arrow.
+        /// </summary>
+        internal static string Location_Dropdown {
+            get {
+                return ResourceManager.GetString("Location_Dropdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to id:Password.
         /// </summary>
         internal static string Login_Password {
@@ -165,6 +210,69 @@ namespace CertificationAutomation.Resources {
         internal static string Maintenance_Tab {
             get {
                 return ResourceManager.GetString("Maintenance_Tab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcAccountAttributes1_reconcilerDropDownList_Arrow.
+        /// </summary>
+        internal static string Reconciler_Dropdown {
+            get {
+                return ResourceManager.GetString("Reconciler_Dropdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //*[@id=&quot;ctl00_MainContent_TabAccount1_RadTabStripAccount&quot;]/div/ul/li[3]/a/span/span/span.
+        /// </summary>
+        internal static string ReconciliationCCY_Tab {
+            get {
+                return ResourceManager.GetString("ReconciliationCCY_Tab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcAccountAttributes1_reconciliationScheduleDropDownList_Arrow.
+        /// </summary>
+        internal static string RecSchedule_Dropdown {
+            get {
+                return ResourceManager.GetString("RecSchedule_Dropdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcAccountAttributes1_reconciliationFormatDropDownList_Arrow.
+        /// </summary>
+        internal static string RecTemplate_Dropdown {
+            get {
+                return ResourceManager.GetString("RecTemplate_Dropdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcAccountAttributes1_reviewerDropDownList_Arrow.
+        /// </summary>
+        internal static string Reviewer_Dropdown {
+            get {
+                return ResourceManager.GetString("Reviewer_Dropdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcAccountAttributes1_reviewScheduleDropDownList_Arrow.
+        /// </summary>
+        internal static string RevSchedule_Dropdown {
+            get {
+                return ResourceManager.GetString("RevSchedule_Dropdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_MainContent_UcAccountAttributes1_riskRatingDropDownList_Arrow.
+        /// </summary>
+        internal static string RiskRating_DropDown {
+            get {
+                return ResourceManager.GetString("RiskRating_DropDown", resourceCulture);
             }
         }
         

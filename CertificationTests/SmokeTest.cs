@@ -18,11 +18,11 @@ namespace CertificationTests
             node = parent.CreateNode("Login Test");
             logger.Info("Login Test: Started");
             string path = CommonFunctions.CaptureScreenshot(Driver.Instance, "C:\\Test\\", "test1");
-            
-            CommonFunctions.EnterText("Login_Username", "autouser");
+
+            CommonFunctions.EnterText("Login_Username", table["Username"].ToString());
 
             Console.WriteLine(table["Username"].ToString());
-            CommonFunctions.EnterText("Login_Password", "User123!@#");
+            CommonFunctions.EnterText("Login_Password", table["Password"].ToString());
             CommonFunctions.Click("Login_SignInButton");
 
             Assert.IsTrue(CommonFunctions.ValidateTitle("Dashboard_Title"));

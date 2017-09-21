@@ -125,3 +125,8 @@ D:\NewCertJEAutomation\CertificationTests\bin\Debug\NPOI.OpenXml4Net.dll
 D:\NewCertJEAutomation\CertificationTests\bin\Debug\ICSharpCode.SharpZipLib.dll
 D:\NewCertJEAutomation\CertificationTests\bin\Debug\NPOI.xml
 D:\NewCertJEAutomation\CertificationTests\obj\Debug\CertificationTests.csproj.CoreCompileInputs.cache
+D:\NewCertJEAutomation\CertificationTests\bin\Debug\Default.srprofile
+D:\NewCertJEAutomation\CertificationTests\bin\Debug\SpecRun.SpecFlowPlugin.dll
+D:\NewCertJEAutomation\CertificationTests\bin\Debug\TechTalk.SpecFlow.dll
+D:\NewCertJEAutomation\CertificationTests\bin\Debug\TechTalk.SpecRun.Common.dll
+D:\NewCertJEAutomation\CertificationTests\bin\Debug\TechTalk.SpecRun.dll

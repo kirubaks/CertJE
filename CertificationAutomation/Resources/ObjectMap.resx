@@ -120,11 +120,23 @@
   <data name="AccountName_Textbox" xml:space="preserve">
     <value>ctl00_MainContent_txtAccName</value>
   </data>
+  <data name="AccountType_Dropdown" xml:space="preserve">
+    <value>ctl00_MainContent_UcAccountAttributes1_accountTypeDropDownList_Arrow</value>
+  </data>
   <data name="Account_Textbox" xml:space="preserve">
     <value>ctl00_MainContent_accountSegmentsDataList_ctl01_txtAccountSegment</value>
   </data>
   <data name="Add_New_Account" xml:space="preserve">
     <value>xpath://*[@id="menu_mega"]/li[2]/div/ul[1]/li[3]/a</value>
+  </data>
+  <data name="CCY1_Chkbox" xml:space="preserve">
+    <value>ctl00_MainContent_UcReconciliationCCYs1_currency1GenerateBalanceCheckBox</value>
+  </data>
+  <data name="CCY2_Chkbox" xml:space="preserve">
+    <value>ctl00_MainContent_UcReconciliationCCYs1_currency2GenerateBalanceCheckBox</value>
+  </data>
+  <data name="CCY3_Chkbox" xml:space="preserve">
+    <value>ctl00_MainContent_UcReconciliationCCYs1_currency3GenerateBalanceCheckBox</value>
   </data>
   <data name="Certification_R2R_Header" xml:space="preserve">
     <value>xpath://*[@id="column1_cert"]/div/div/div/div/div/div/h3/a</value>
@@ -141,6 +153,9 @@
   <data name="Division_Textbox" xml:space="preserve">
     <value>ctl00_MainContent_accountSegmentsDataList_ctl02_txtAccountSegment</value>
   </data>
+  <data name="Location_Dropdown" xml:space="preserve">
+    <value>ctl00_MainContent_UcAccountAttributes1_locationDropDownList_Arrow</value>
+  </data>
   <data name="Login_Password" xml:space="preserve">
     <value>id:Password</value>
   </data>
@@ -152,6 +167,27 @@
   </data>
   <data name="Maintenance_Tab" xml:space="preserve">
     <value>xpath://*[@id="menu_mega"]/li[2]/a[2]</value>
+  </data>
+  <data name="Reconciler_Dropdown" xml:space="preserve">
+    <value>ctl00_MainContent_UcAccountAttributes1_reconcilerDropDownList_Arrow</value>
+  </data>
+  <data name="ReconciliationCCY_Tab" xml:space="preserve">
+    <value>//*[@id="ctl00_MainContent_TabAccount1_RadTabStripAccount"]/div/ul/li[3]/a/span/span/span</value>
+  </data>
+  <data name="RecSchedule_Dropdown" xml:space="preserve">
+    <value>ctl00_MainContent_UcAccountAttributes1_reconciliationScheduleDropDownList_Arrow</value>
+  </data>
+  <data name="RecTemplate_Dropdown" xml:space="preserve">
+    <value>ctl00_MainContent_UcAccountAttributes1_reconciliationFormatDropDownList_Arrow</value>
+  </data>
+  <data name="Reviewer_Dropdown" xml:space="preserve">
+    <value>ctl00_MainContent_UcAccountAttributes1_reviewerDropDownList_Arrow</value>
+  </data>
+  <data name="RevSchedule_Dropdown" xml:space="preserve">
+    <value>ctl00_MainContent_UcAccountAttributes1_reviewScheduleDropDownList_Arrow</value>
+  </data>
+  <data name="RiskRating_DropDown" xml:space="preserve">
+    <value>ctl00_MainContent_UcAccountAttributes1_riskRatingDropDownList_Arrow</value>
   </data>
   <data name="SetofBooks_Textbox" xml:space="preserve">
     <value>ctl00_MainContent_accountSegmentsDataList_ctl03_txtAccountSegment</value>
