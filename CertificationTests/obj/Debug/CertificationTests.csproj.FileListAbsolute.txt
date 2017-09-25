@@ -68,23 +68,6 @@ C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\Certif
 C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\obj\Debug\CertificationTests.dll
 C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\obj\Debug\CertificationTests.pdb
 <<<<<<< HEAD
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\Configuration\Environment.Config
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\Resources\ObjectMap.resx
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\Resources\ObjectMap.Designer.cs
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\ExcelDataReader.DataSet.dll
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\ExcelDataReader.dll
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\RestSharp.dll
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\ExcelDataReader.xml
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\ExcelDataReader.DataSet.xml
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\RestSharp.xml
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\NPOI.OOXML.dll
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\NPOI.dll
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\NPOI.OpenXmlFormats.dll
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\NPOI.OpenXml4Net.dll
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\kkathiresan\Documents\Auto\CertificationAutomationProject\CertJE\CertificationTests\bin\Debug\NPOI.xml
 D:\NewCertJEAutomation\CertificationTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 D:\NewCertJEAutomation\CertificationTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 D:\NewCertJEAutomation\CertificationTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -141,3 +124,7 @@ D:\NewCertJEAutomation\CertificationTests\bin\Debug\TechTalk.SpecRun.Common.dll
 D:\NewCertJEAutomation\CertificationTests\bin\Debug\TechTalk.SpecRun.dll
 =======
 >>>>>>> 65950c042ece701e7a097a1e294d7f95b649fa94
+E:\NewCertJEAutomation\CertificationTests\obj\Debug\CertificationTests.dll
+E:\NewCertJEAutomation\CertificationTests\obj\Debug\CertificationTests.pdb
+E:\NewCertJEAutomation\CertificationTests\obj\Debug\CertificationTests.csprojResolveAssemblyReference.cache
+E:\NewCertJEAutomation\CertificationTests\obj\Debug\CertificationTests.csproj.CoreCompileInputs.cache

@@ -37,7 +37,7 @@ namespace CertificationTests
             Assert.IsTrue(CommonFunctions.ValidateTitle("Dashboard_Title"));
             cookieValue = CommonFunctions.GetCookieValue();
             Console.WriteLine(cookieValue);
-            string path = CommonFunctions.CaptureScreenshot(Driver.Instance, "C:\\Test\\", "test1");
+            path = CommonFunctions.CaptureScreenshot(Driver.Instance, "C:\\Test\\", "test1");
             path = CommonFunctions.CaptureScreenshot(Driver.Instance, "C:\\Test\\", "LoginTest");
             node.Pass("Login Successful").AddScreenCaptureFromPath(path);
 
