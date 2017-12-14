@@ -45,7 +45,6 @@ namespace CertificationTests
         }
 
         [Test]
-
         public void APITest()
         {
             CommonFunctions.EnterText("Login_Username", "autouser");
@@ -101,6 +100,7 @@ namespace CertificationTests
             string entityId = JSONObj["id"];
             Console.WriteLine("Entity ID: " +entityId);
         }
+
         [Test]
         public void AddAnAccountTest()
         {

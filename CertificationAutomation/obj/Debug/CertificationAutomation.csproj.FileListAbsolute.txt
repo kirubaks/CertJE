@@ -54,9 +54,9 @@ E:\NewCertJEAutomation\CertificationAutomation\bin\Debug\NPOI.xml
 E:\NewCertJEAutomation\CertificationAutomation\bin\Debug\RestSharp.xml
 E:\NewCertJEAutomation\CertificationAutomation\bin\Debug\WebDriver.xml
 E:\NewCertJEAutomation\CertificationAutomation\bin\Debug\WebDriver.Support.xml
-E:\NewCertJEAutomation\CertificationAutomation\obj\Debug\CertificationAutomation.csprojResolveAssemblyReference.cache
 E:\NewCertJEAutomation\CertificationAutomation\obj\Debug\CertificationAutomation.Resources.ObjectMap.resources
 E:\NewCertJEAutomation\CertificationAutomation\obj\Debug\CertificationAutomation.csproj.GenerateResource.Cache
 E:\NewCertJEAutomation\CertificationAutomation\obj\Debug\CertificationAutomation.csproj.CoreCompileInputs.cache
 E:\NewCertJEAutomation\CertificationAutomation\obj\Debug\CertificationAutomation.dll
 E:\NewCertJEAutomation\CertificationAutomation\obj\Debug\CertificationAutomation.pdb
+E:\NewCertJEAutomation\CertificationAutomation\obj\Debug\CertificationAutomation.csprojResolveAssemblyReference.cache

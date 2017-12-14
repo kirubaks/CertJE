@@ -43,11 +43,7 @@
         <ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 
             <a>
-<<<<<<< HEAD
-                <span class='suite-start-time label blue darken-3'>9/20/2017 12:06:12 PM Central Standard Time</span>
-=======
-                <span class='suite-start-time label blue darken-3'>9/20/2017 6:25:42 PM Central Standard Time</span>
->>>>>>> 65950c042ece701e7a097a1e294d7f95b649fa94
+                <span class='suite-start-time label blue darken-3'>9/28/2017 11:55:57 AM Central Standard Time</span>
             </a>
             <a>
                 <span class="label blue darken-3">v3.0.2</span>
@@ -127,14 +123,28 @@
                     <canvas id='parent-analysis' width='100' height='80'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span><span class='strong'>1</span> test(s) passed</span>
+                    <span><span class='strong'>0</span> test(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong'>0</span> test(s) failed, <span class='strong'>0</span> others
+                    <span class='strong'>2</span> test(s) failed, <span class='strong'>0</span> others
                 </div>
             </div>
         </div>
 
+            <div class='col s12 m6 l6 np-h'>
+                <div class='card-panel nm-v'>
+                    <div class='left panel-name'>Steps</div>
+                    <div class='chart-box'>
+                        <canvas id='child-analysis' width='100' height='80'></canvas>
+                    </div>
+                    <div class='block text-small'>
+                        <span><span class='strong'>1</span> step(s) passed</span>
+                    </div>
+                    <div class='block text-small'>
+                        <span class='strong'>4</span> step(s) failed, <span class='strong'>0</span> others
+                    </div>
+                </div>
+            </div>
 
     </div>
 </div>
@@ -146,29 +156,60 @@
             <ul id='test-collection' class='test-collection'>
 
 
-                    <li class='test displayed active  pass' status='pass' test-id='1'>
+                    <li class='test displayed active has-leaf fail' status='fail' test-id='1'>
                         <div class='test-heading'>
                             <span class='test-name'>SmokeTest Suite</span>
-<<<<<<< HEAD
-                            <span class='test-time'>9/20/2017 12:06:12 PM</span>
-=======
-                            <span class='test-time'>9/20/2017 6:25:42 PM</span>
->>>>>>> 65950c042ece701e7a097a1e294d7f95b649fa94
-                            <span class='test-status right pass'>Pass</span>
+                            <span class='test-time'>9/28/2017 11:55:57 AM</span>
+                            <span class='test-status right fail'>Fail</span>
                         </div>
                         <div class='test-content hide'>
                                 <div class='test-time-info'>
-<<<<<<< HEAD
-                                    <span class='label start-time'>9/20/2017 12:06:12 PM</span>
-                                    <span class='label end-time'>9/20/2017 12:06:36 PM</span>
-                                    <span class='label time-taken grey lighten-1 white-text'>00:00:23.9350000</span>
+                                    <span class='label start-time'>9/28/2017 11:55:57 AM</span>
+                                    <span class='label end-time'>9/28/2017 11:59:53 AM</span>
+                                    <span class='label time-taken grey lighten-1 white-text'>00:03:55.4978864</span>
                                 </div>
                                     <ul class='collapsible node-list' data-collapsible='accordion'>
-                                            <li class='node level-1 pass' status='pass' test-id='2'>
+                                            <li class='node level-1 fail' status='fail' test-id='2'>
+                                                <div class='collapsible-header'>
+                                                    <div class='node-name'>Add an Account Test</div>
+                                                    <span class='node-time'>9/28/2017 11:56:02 AM</span>
+                                                    <span class='test-status right fail'>Fail</span>
+                                                </div>
+                                                <div class='collapsible-body'>
+                                                    <div class='node-steps'>
+                                                        <table class='bordered table-results'>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Status</th>
+                                                                    <th>Timestamp</th>
+                                                                    <th>Details</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                    <tr class='log' status='fail'>
+                                                                        <td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+                                                                        <td class='timestamp'>9/28/2017 11:59:17 AM</td>
+                                                                        <td class='step-details'>Test Failed</td>
+                                                                    </tr>
+                                                                    <tr class='log' status='fail'>
+                                                                        <td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+                                                                        <td class='timestamp'>9/28/2017 11:59:17 AM</td>
+                                                                        <td class='step-details'>Test ended with Fail   at CertificationAutomation.Utilities.CommonFunctions.GetTokenValue() in E:\NewCertJEAutomation\CertificationAutomation\Utilities\CommonFunctions.cs:line 75
+   at CertificationTests.SmokeTest.APITest() in E:\NewCertJEAutomation\CertificationTests\SmokeTest.cs:line 63</td>
+                                                                    </tr>
+                                                            </tbody>
+                                                        </table>
+                                                            <ul class='screenshots'>
+                                                                    <li><img data-featherlight='C:\Test\_test_failed9_28_2017 11_58_50 AM' width='10%' src='' data-src='C:\Test\_test_failed9_28_2017 11_58_50 AM'></li>
+                                                            </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class='node level-1 fail' status='fail' test-id='3'>
                                                 <div class='collapsible-header'>
                                                     <div class='node-name'>Login Test</div>
-                                                    <span class='node-time'>9/20/2017 12:06:17 PM</span>
-                                                    <span class='test-status right pass'>Pass</span>
+                                                    <span class='node-time'>9/28/2017 11:59:20 AM</span>
+                                                    <span class='test-status right fail'>Fail</span>
                                                 </div>
                                                 <div class='collapsible-body'>
                                                     <div class='node-steps'>
@@ -183,24 +224,34 @@
                                                             <tbody>
                                                                     <tr class='log' status='pass'>
                                                                         <td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-                                                                        <td class='timestamp'>9/20/2017 12:06:36 PM</td>
+                                                                        <td class='timestamp'>9/28/2017 11:59:34 AM</td>
                                                                         <td class='step-details'>Login Successful</td>
+                                                                    </tr>
+                                                                    <tr class='log' status='fail'>
+                                                                        <td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+                                                                        <td class='timestamp'>9/28/2017 11:59:53 AM</td>
+                                                                        <td class='step-details'>Test Failed</td>
+                                                                    </tr>
+                                                                    <tr class='log' status='fail'>
+                                                                        <td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+                                                                        <td class='timestamp'>9/28/2017 11:59:53 AM</td>
+                                                                        <td class='step-details'>Test ended with Fail   at RA.ResponseContext.Parse()
+   at RA.ResponseContext.Initialize()
+   at RA.ResponseContext..ctor(HttpStatusCode statusCode, String content, Dictionary`2 headers, TimeSpan elaspedExecutionTime, List`1 loadResponses)
+   at RA.ExecutionContext.BuildFromResponse(HttpResponseMessageWrapper result)
+   at RA.ExecutionContext.Then()
+   at CertificationTests.SmokeTest.TryingRestAssured() in E:\NewCertJEAutomation\CertificationTests\SmokeTest.cs:line 158</td>
                                                                     </tr>
                                                             </tbody>
                                                         </table>
                                                             <ul class='screenshots'>
-                                                                    <li><img data-featherlight='C:\Test\_LoginTest9_20_2017 12_06_36 PM' width='10%' src='' data-src='C:\Test\_LoginTest9_20_2017 12_06_36 PM'></li>
+                                                                    <li><img data-featherlight='C:\Test\_LoginTest9_28_2017 11_59_34 AM' width='10%' src='' data-src='C:\Test\_LoginTest9_28_2017 11_59_34 AM'></li>
+                                                                    <li><img data-featherlight='C:\Test\_test_failed9_28_2017 11_59_53 AM' width='10%' src='' data-src='C:\Test\_test_failed9_28_2017 11_59_53 AM'></li>
                                                             </ul>
                                                     </div>
                                                 </div>
                                             </li>
                                     </ul>
-=======
-                                    <span class='label start-time'>9/20/2017 6:25:42 PM</span>
-                                    <span class='label end-time'>9/20/2017 6:25:42 PM</span>
-                                    <span class='label time-taken grey lighten-1 white-text'>00:00:00</span>
-                                </div>
->>>>>>> 65950c042ece701e7a097a1e294d7f95b649fa94
 
                         </div>
                     </li>
@@ -278,42 +329,30 @@
         <div class='row'>
             <div class='col s2'>
                 <div class='card-panel r'>
- <span>Tests</span>                     <div class='panel-lead'>1</div>
+ <span>Tests</span>                     <div class='panel-lead'>2</div>
                 </div>
             </div>
             <div class='col s2'>
                 <div class='card-panel r'>
- <span>Steps</span>                     <div class='panel-lead'>0</div>
+ <span>Steps</span>                     <div class='panel-lead'>5</div>
                 </div>
             </div>
             <div class='col s2'>
                 <div class='card-panel r'>
                     Start
-<<<<<<< HEAD
-                    <div class='panel-lead'>9/20/2017 12:06:12 PM</div>
-=======
-                    <div class='panel-lead'>9/20/2017 6:25:42 PM</div>
->>>>>>> 65950c042ece701e7a097a1e294d7f95b649fa94
+                    <div class='panel-lead'>9/28/2017 11:55:57 AM</div>
                 </div>
             </div>
             <div class='col s2'>
                 <div class='card-panel r'>
                     End
-<<<<<<< HEAD
-                    <div class='panel-lead'>9/20/2017 12:06:39 PM</div>
-=======
-                    <div class='panel-lead'>9/20/2017 6:25:58 PM</div>
->>>>>>> 65950c042ece701e7a097a1e294d7f95b649fa94
+                    <div class='panel-lead'>9/28/2017 11:59:56 AM</div>
                 </div>
             </div>
             <div class='col s2'>
                 <div class='card-panel r'>
                     Time Taken
-<<<<<<< HEAD
-                    <div class='panel-lead'>00:00:26.3070000</div>
-=======
-                    <div class='panel-lead'>00:00:15.9296542</div>
->>>>>>> 65950c042ece701e7a097a1e294d7f95b649fa94
+                    <div class='panel-lead'>00:03:58.6382410</div>
                 </div>
             </div>
 
@@ -332,15 +371,15 @@
 
 		<script>
 			var statusGroup = {
-			    passParent: 1,
-			    failParent: 0,
+			    passParent: 0,
+			    failParent: 2,
 			    fatalParent: 0,
 			    errorParent: 0,
 			    warningParent: 0,
 			    skipParent: 0,
 				
-			    passChild: 0,
-			    failChild: 0,
+			    passChild: 1,
+			    failChild: 4,
 			    fatalChild: 0,
 			    errorChild: 0,
 			    warningChild: 0,
